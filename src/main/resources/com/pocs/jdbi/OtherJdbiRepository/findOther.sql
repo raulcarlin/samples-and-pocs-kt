@@ -1,0 +1,1 @@
+SELECT id, other_name as name, other_number as number, other_date as addAt FROM other;

@@ -1,0 +1,1 @@
+INSERT INTO other (other_name, other_number, other_date) VALUES ('Other', 20.0, '2022-01-01 00:00:00')

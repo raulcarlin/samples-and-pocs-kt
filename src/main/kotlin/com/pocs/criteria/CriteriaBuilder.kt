@@ -22,7 +22,7 @@ object CriteriaBuilder {
         }
 
         val fullQuery = "$query ${if(map.keys.isEmpty()) "" 
-            else "WHERE ${map.keys.joinToString(" AND ") { "$it = ?" }}"} ${otherClauses ?: ""}"
+            else "WHERE ${map.keys.joinToString(" AND ") { "$it = :$it" }}"} ${otherClauses ?: ""}"
 
         return fullQuery.trim() to map
     }

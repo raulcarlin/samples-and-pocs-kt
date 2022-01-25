@@ -18,7 +18,7 @@ class CriteriaBuilderTest {
         )
         val (fullQuery, params) = CriteriaBuilder.buildQuery(initialQuery, criteria)
 
-        val expectedQuery = "$initialQuery WHERE name = ? AND number_of_whatever = ?"
+        val expectedQuery = "$initialQuery WHERE name = :name AND number_of_whatever = :number_of_whatever"
         assertEquals(expectedQuery, fullQuery)
         assertAll("Params",
             { assertEquals(params["name"], "Test") },
@@ -38,7 +38,7 @@ class CriteriaBuilderTest {
 
         val (fullQuery, params) = CriteriaBuilder.buildQuery(initialQuery, criteria, otherClauses)
 
-        val expectedQuery = "$initialQuery WHERE name = ? AND number_of_whatever = ? ORDER BY name"
+        val expectedQuery = "$initialQuery WHERE name = :name AND number_of_whatever = :number_of_whatever ORDER BY name"
         assertEquals(expectedQuery, fullQuery)
         assertAll("Params",
             { assertEquals(params["name"], "Test Clause") },
